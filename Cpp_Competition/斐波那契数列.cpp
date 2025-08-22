@@ -43,6 +43,10 @@ int main()
 
 //优化解法2
 //使用数组存储斐波那契数列，避免重复计算
+#include<bits/stdc++.h>
+using namespace std;
+using ll=long long;
+using pii=pair<int,int>;
 
 int main()
 {
@@ -74,3 +78,44 @@ int main()
 }
 
 
+//优化解法3
+//使用记忆化递归，避免重复计算
+
+#include<bits/stdc++.h>
+using namespace std;
+using ll=long long;
+using pii=pair<int,int>;
+
+
+ll apple[61]={0};     // 声明一个超长数组
+ll fib(ll n)
+{
+	if(n == 0)
+	return 0;
+	if(n==1||n==2)
+	return 1;
+	if(apple[n])
+	return apple[n];
+	return  apple[n] = fib(n-1) + fib(n-2);
+}
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
+    
+    ll T;
+    cin>>T;
+    while(T--)
+    {
+    	ll N=0;
+    	cin>>N;
+        cout << "Fib(" << N << ") = " << fib(N) << '\n';
+    }
+    
+
+    return 0;
+}
