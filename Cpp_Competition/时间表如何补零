@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll=long long;
+using pii=pair<int,int>;
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
+    ll A;
+    cin>>A;
+    A /= 1000;
+    A %= 86400;
+    int a=A/3600;
+    A %= 3600;
+    int b=A/60;
+    A %=60;
+    int c=A;
+//最后被补零难死。。。
+//cout<<a<<":"<<b<<":"<<c;
+//用printf（
+    printf("%02d:%02d:%02d",a,b,c);
+    return 0;
+}
