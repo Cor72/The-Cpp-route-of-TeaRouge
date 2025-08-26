@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+using ll=long long;
+using pii=pair<int,int>;
+
+
+
+
+
+int main()
+{
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    
+    ll n;
+    // cin>>n;
+    // ll a=1;
+    // ll b=2;
+    // while(n--){
+    	// for(ll i=0;i;i+=2){
+    		// a +=i;
+    		// b +=i;
+    	// }
+//     
+    // }
+    // int t = std::__gcd(a,b);
+    cin>>n;
+    cout<<n;
+    return 0;
+}
