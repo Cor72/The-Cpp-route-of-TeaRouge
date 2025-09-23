@@ -74,7 +74,7 @@ priority_queue<int,vector<int>,greater<int> pque2;
 
 **集合set**
 
-set 集合中的元素是有顺序的，从小到大
+set 集合中的元素是有顺序的，从小到大，一个元素仅可以在集合中出现一次
 
 multiset 一个元素可以在集合中出现任意一次而且集合中的元素是从小到大的
 
