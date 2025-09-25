@@ -13,7 +13,10 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int _;cin>>_;
-    while(_--)solve();
+    int t;cin>>t;
+    while(t--)
+    {
+        solve();
+    }
     return 0;
 }
