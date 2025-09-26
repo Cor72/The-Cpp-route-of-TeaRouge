@@ -18,12 +18,24 @@ int main()
     {
         int n;
         cin>>n;
+        int zero=0;
+        int fuone=0;
         vector<int> a(n);
-        for(int i=0;i<n;i++)
-        {
+        for(int i=0;i<n;i++){
             cin>>a[i];
+            if(a[i]==0)
+            zero++;
+            else if(a[i]==-1)
+            fuone++;
         }
-
+        if(fuone&1)
+        {
+            cout<<zero+2<<"\n";
+        }
+        else
+        {
+            cout<<zero<<"\n";
+        }
 
 
     }

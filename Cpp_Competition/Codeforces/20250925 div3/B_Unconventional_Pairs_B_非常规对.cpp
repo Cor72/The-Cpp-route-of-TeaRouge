@@ -18,14 +18,21 @@ int main()
     {
         int n;
         cin>>n;
-        vector<int> a(n);
+        int zero=0;
+        int fuone=0;
+        vector<ll> a(n);
         for(int i=0;i<n;i++)
         {
             cin>>a[i];
         }
 
-
-
+        sort(a.begin(),a.end());
+        ll ans=0;
+        for(int i=0;i<n;i+=2)
+        {
+            ans = max(ans, a[i + 1] - a[i]);
+        }
+        cout<<ans<<"\n";
     }
     return 0;
 }
