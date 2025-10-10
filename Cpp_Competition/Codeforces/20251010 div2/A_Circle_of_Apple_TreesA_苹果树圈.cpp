@@ -22,6 +22,7 @@ int main()
         for (int i = 0; i < n; ++i) cin >> b[i];
         unordered_set<int> nums(b.begin(),b.end());
         cout << nums.size() << '\n';
+        
     }
     return 0;
 }
