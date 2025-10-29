@@ -7,11 +7,20 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<int> a(n);
-    for(int i=0;i<n;i++)
+    string s,t;
+    cin>>s>>t;
+    vector<int> a(26);
+    for(char m:s){a[m-'a']++;}
+    for(char n:t){a[n-'a']--;}
+    for(int i=0;i<=25;i++)
     {
-        cin>>a[i];
+        if(a[i]!=0)
+        {
+            cout<<"NO\n";
+            return;
+        }
     }
+    cout<<"YES\n";
 }
 int main()
 {

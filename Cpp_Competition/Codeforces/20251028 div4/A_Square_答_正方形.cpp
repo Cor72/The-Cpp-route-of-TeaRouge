@@ -5,13 +5,22 @@ using pii=pair<int,int>;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<int> a(n);
-    for(int i=0;i<n;i++)
+    vector<int> a(4);
+    for(int i=0;i<4;i++)
     {
         cin>>a[i];
     }
+    for(int j=1;j<=3;j++)
+    {
+        if(a[j]!=a[j-1])
+        {
+        cout<<"NO\n";
+        return;
+        }
+    }
+    cout<<"YES\n";
+    return;
+
 }
 int main()
 {
