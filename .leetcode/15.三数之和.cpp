@@ -31,19 +31,22 @@ public:
                 continue;
             }
             int l=i+1;int r=nums.size()-1;
-            while(l<=r)
+            while(l<r)
             {
                 if(nums[i]+nums[r]+nums[l]==0)
                 {
                     result.push_back({nums[i],nums[r],nums[l]});
+                    
                     while(r>l&&nums[r]==nums[r-1])
                     {
                         r--;
                     }
-                    while(r>l&&nums[l]==nums[l-1])
+                    while(r>l&&nums[l]==nums[l+1])
                     {
                         l++;
-                    }                
+                    }
+                    r--;
+                    l++;                
                 }
                 else if(nums[i]+nums[r]+nums[l]>0)
                 {
