@@ -9,7 +9,7 @@ void solve()
 {
     int count;
     cin>>count;
-    vector<int> a(count);
+    vector<int> a(count) ;
     for(int i=0;i<count;i++)
     {
         cin>>a[i];
