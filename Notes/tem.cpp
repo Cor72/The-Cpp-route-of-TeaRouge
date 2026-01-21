@@ -1,9 +1,11 @@
 #include<iostream>
 #include<string>
 #include<vector>
+#include <algorithm>
 using namespace std;
 using ll=long long;
 using pii=pair<int,int>;
+const int N=4e5+1;
 
 void solve()
 {
