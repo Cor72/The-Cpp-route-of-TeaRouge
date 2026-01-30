@@ -16,9 +16,9 @@ void solve()
 {
 	scanf("%d%d",&n,&m);
 	for(int i=1;i<=m;i++){
-		scanf("%d%d%d%d",&l,&r,&s,&e);//不用读入优化，本蒟蒻卡着456ms过的
-		d=(e-s)/(r-l);//公差
-		c[l]=c[l]+s;//K大佬上面写了
+		scanf("%d%d%d%d",&l,&r,&s,&e);
+		d=(e-s)/(r-l);
+		c[l]=c[l]+s;
 		c[l+1]=c[l+1]+d-s;
 		c[r+1]=c[r+1]-d-e;
 		c[r+2]=c[r+2]+e;
