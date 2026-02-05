@@ -25,6 +25,7 @@ void sett(int x,int y)
     a[x]=a[y];
 }
 
+
 void solve()
 {
     a.clear();
