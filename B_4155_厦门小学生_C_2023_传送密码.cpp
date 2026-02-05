@@ -5,7 +5,7 @@ using pii=pair<int,int>;
 
 void solve()
 {
-    cout<<5%6;
+    
 }
 
 int main()
