@@ -6,7 +6,6 @@
 #include<string>
 #include<queue>
 #include<vector>
-#include<map>
 using namespace std;
 using ll=long long;
 using pii=pair<int,int>;
@@ -14,14 +13,15 @@ const int N=4e5+1;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<int> a(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
-
+    ll a,b,c;
+    cin>>a>>b>>c;
+    bool ok=true;
+    if((abs(a-b))>1||(abs(c-b))>1||(abs(a-c))>1)
+    ok=false;
+    if(ok)
+    cout<<"YES"<<"\n";
+    else
+    cout<<"NO"<<"\n";
 
 
 }
