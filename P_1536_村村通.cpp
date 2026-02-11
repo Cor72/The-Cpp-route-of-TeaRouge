@@ -15,29 +15,37 @@ int m,n;
 vector<int> a(2001);
 int findd(int x)
 {
-    return x==a[x]?x:findd(x);
+    return x==a[x]?x:findd(a[x]);
 }
 void sett(int x,int y)
 {
     x=findd(x);
     y=findd(y);
-    if(x==y)
+    if(x!=y)
     a[x]=a[y];
 }
 
 
 void solve()
 {
-    a.clear();
-    for(int i=0;i<m;i++)
+
+    for(int i=1;i<=m;i++)
     {
         a[i]=i;
     }
     for(int i=0;i<n;i++)
     {
-        
+        int x=0;int y=0;
+        cin>>x>>y;
+        sett(x,y);
     }
-
+    int count=0;
+    for(int i=1;i<=m;i++)
+    {
+        if(a[i]==i)
+        count++;
+    }
+    cout<<count-1<<"\n";
 
 }
 
