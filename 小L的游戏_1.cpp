@@ -7,22 +7,23 @@
 #include<queue>
 #include<vector>
 #include<map>
-#include<iomanip>
 using namespace std;
 using ll=long long;
-using pll=pair<ll,ll>;
-using vii=vector<vector<int>>;
+using pii=pair<int,int>;
 const int N=4e5+1;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<ll> a(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
+    ll m,n,z;
+    cin>>m>>n>>z;
+    ll tem=m+n;
+    ll let=z%tem;
+    if(let==0)
+    cout<<"1";
+    else if(let>m)
+    cout<<"1";
+    else
+    cout<<"0";
 
 
 
