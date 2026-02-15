@@ -18,11 +18,19 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<ll> a(n+1);
+    bool ok=false;
+    bool ok2=false;
+    vector<ll> a(n);
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
+        if(a[i]==67)
+        ok=true;
     }
+    if(ok)
+    cout<<"YES"<<"\n";
+    else
+    cout<<"NO"<<"\n";
 
 
 
