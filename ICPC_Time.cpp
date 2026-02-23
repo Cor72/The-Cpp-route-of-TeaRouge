@@ -18,11 +18,9 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<ll> a(n+1);
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
+    n+=5;
+    n=n%24;
+    cout<<n;
 
 
 
@@ -33,8 +31,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int T;cin>>T;
-    while(T--)
     solve();
     return 0;
 }

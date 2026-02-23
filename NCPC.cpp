@@ -10,23 +10,23 @@
 using namespace std;
 using ll=long long;
 using pii=pair<int,int>;
-const int N=4e5+1;
+const ll N=4e5+1;
 
 void solve()
 {
     ll t;
     cin>>t;
-    vector<int> a(t);
-    for(int i=0;i<t;i++)
+    vector<ll> a(t);
+    for(ll i=0;i<t;i++)
     {
         cin>>a[i];
     }
     ll val=*max_element(a.begin(),a.end());
     ll ans=count(a.begin(),a.end(),val);
-    map<int, int> freq;
-    for (int x : a) freq[x]++;
+    map<ll,ll> freq;
+    for (ll x : a) freq[x]++;
     // cout<<freq[3];
-    map<int, bool> sett;
+    map<ll, bool> sett;
     bool ok=true;
     for(auto it=freq.rbegin();it!=freq.rend();++it)
     {
@@ -49,7 +49,7 @@ void solve()
         sett[it->first]=false;
     }
 
-    for(int x:a)
+    for(ll x:a)
     {
         cout<<(sett[x]?'1':'0');
     }

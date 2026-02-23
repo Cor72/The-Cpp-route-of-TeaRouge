@@ -11,31 +11,30 @@
 using namespace std;
 using ll=long long;
 using pll=pair<ll,ll>;
-using vii=vector<vector<int>>;
+using vll=vector<vector<ll>>;
 const int N=4e5+1;
 
 void solve()
 {
-    int n;
+    string n;
     cin>>n;
-    vector<ll> f(n+1);
-    vector<ll> a(n+1);
-    for(int i=0;i<n;i++)
+    // cout<<n<<" ";
+    bool ok=false;
+    for(int i=0;i<n.size();i++)
     {
-        cin>>f[i];
+        // cout<<n[i]<<" ";
+        if(n[i]=='0'||n[i]=='5')
+        ok=true;
+        // cout<<ok;
     }
-	for(int i=1;i<n-1;i++)
-    a[i]=(f[i+1]+f[i-1]-f[i]*2)/2;
-    for(int i=1;i<n-1;i++)
+    if(ok)
     {
-        f[0]-=i*a[i];
-        f[n-1]-=(n-i-1)*a[i];
+        cout<<"YES"<<"\n";
     }
-    a[n-1]=f[0]/(n-1);
-    a[0]=f[n-1]/(n-1);
-    for(int i=0;i<n;i++)cout<<a[i]<<' ';
-    cout<<'\n';
-
+    else
+    {
+        cout<<"NO"<<"\n";
+    }
 
 
 }

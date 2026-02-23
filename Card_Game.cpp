@@ -12,31 +12,41 @@ using namespace std;
 using ll=long long;
 using pll=pair<ll,ll>;
 using vii=vector<vector<int>>;
-const int N=4e5+1;
-
+const ll N=1e18;
+const int M=998244353;
 void solve()
 {
     int n;
     cin>>n;
-    vector<ll> f(n+1);
     vector<ll> a(n+1);
     for(int i=0;i<n;i++)
     {
-        cin>>f[i];
+        cin>>a[i];
     }
-	for(int i=1;i<n-1;i++)
-    a[i]=(f[i+1]+f[i-1]-f[i]*2)/2;
-    for(int i=1;i<n-1;i++)
+    vector<ll> b(n+1);
+    ll let=N;ll x=0;ll y=0;
+    for(int i=0;i<n;i++)
     {
-        f[0]-=i*a[i];
-        f[n-1]-=(n-i-1)*a[i];
+        cin>>b[i];
+        let=min(let,b[i]);
     }
-    a[n-1]=f[0]/(n-1);
-    a[0]=f[n-1]/(n-1);
-    for(int i=0;i<n;i++)cout<<a[i]<<' ';
-    cout<<'\n';
-
-
+    for(int i=0;i<n;i++)
+    {
+        if(a[i]>let)
+        x++;
+        else
+        y++;
+    }
+    ll ans=1;
+    for(int i=1;i<=x;i++)
+    {
+        ans=(ans*i)%M;
+    }
+    for(int i=1;i<=y;i++)
+    {
+        ans=(ans*i)%M;
+    }
+    cout<<ans<<"\n";
 
 }
 
