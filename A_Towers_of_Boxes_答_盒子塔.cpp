@@ -7,13 +7,20 @@ const int N=4e5+1;const int MOD=998244353;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<ll> a(n+1);
-    for(int i=0;i<n;i++)
+    int n,a,b;
+    cin>>n>>a>>b;
+    int let=b/a;
+    if(let<=0)
     {
-        cin>>a[i];
+        cout<<n<<"\n";
+        return;
     }
+    int tmp=n/(let+1);
+    if(n%(let+1)==0)
+    cout<<tmp<<"\n";
+    else
+    cout<<tmp+1<<"\n";
+
 
 
 

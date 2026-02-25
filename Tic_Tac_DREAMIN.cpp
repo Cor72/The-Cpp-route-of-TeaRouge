@@ -1,19 +1,22 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
+using dl=double long;
 using pll=pair<ll,ll>;
 using vll=vector<vector<ll>>;
 const int N=4e5+1;const int MOD=998244353;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<ll> a(n+1);
-    for(int i=0;i<n;i++)
+    int xa,ya,xb,yb;
+    cin>>xa>>ya>>xb>>yb;
+    if(xa==xb)
     {
-        cin>>a[i];
+        int let=abs(ya-yb);
+        ld ans=
+        cout<<
     }
+
 
 
 
