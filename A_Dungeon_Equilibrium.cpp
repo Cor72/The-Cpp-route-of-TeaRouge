@@ -7,37 +7,36 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<int> a(n);
-    unordered_map<int,int> b;
-    for(int i=0;i<n;i++)
+    for(int i=n-1;i>=0;i--)
     {
-        cin>>a[i];
-        b[a[i]]++;
+        int c=n-1-i;
+        for(int j=0;j<c;j++)
+        cout<<" ";
+        for(int j=0;j<i;j++)
+        cout<<"*";
+        cout<<"*";
+        for(int j=0;j<i;j++)
+        cout<<"*";
+        cout<<"\n";
     }
-    int sum =0;
-    for (auto [c, v] : b) 
+    for(int i=0;i<=n-1;i++)
     {
-    if(c!=v)
-    {
-        if(c>v)
-        {
-            sum+=v;
-        }
-        else
-        {
-            sum+=(v-c);
-        }
-    }
-    }
-    cout<<sum<<"\n";
-
+        int c=n-1-i;
+        for(int j=0;j<c;j++)
+        cout<<" ";
+        for(int j=0;j<i;j++)
+        cout<<"*";
+        cout<<"*";
+        for(int j=0;j<i;j++)
+        cout<<"*";
+        cout<<"\n";
+    }    
 }
 int main()
 {
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int T;cin>>T;
-    while(T--)solve();
+    solve();
     return 0;
 }
