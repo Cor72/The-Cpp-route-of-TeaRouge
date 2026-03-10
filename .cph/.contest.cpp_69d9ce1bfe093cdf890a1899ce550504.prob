@@ -1,0 +1,1 @@
+{"name":"Local: contest","url":"d:\\VS code project\\contest.cpp","tests":[{"id":1772956900558,"input":"630\n","output":"3\n5*6*7\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\VS code project\\contest.cpp","group":"local","local":true}

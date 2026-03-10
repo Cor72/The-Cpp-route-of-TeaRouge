@@ -1,0 +1,18 @@
+//最大公约数
+long long gcd(long long a, long long b) {
+    if (b == 0) return a;
+    return gcd(b, a % b);
+}
+//最小公倍数
+ll gcd(ll a, ll b) {
+    while (b) {
+        a %= b;
+        swap(a, b);
+    }
+    return a;
+}
+//或者
+ll lcm(ll a, ll b) {
+    if (a == 0 || b == 0) return 0; // 可选：根据题意决定是否处理 0
+    return a / gcd(a, b) * b;       // 先除后乘！
+}
