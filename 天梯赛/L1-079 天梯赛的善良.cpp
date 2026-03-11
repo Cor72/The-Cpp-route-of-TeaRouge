@@ -10,11 +10,15 @@ void solve()
     int n;
     cin>>n;
     vector<ll> a(n+1);
+    map<ll,ll> mp;
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
+        mp[a[i]]++;
     }
-    
+    cout<<mp.begin()->first<<" "<<mp.begin()->second<<"\n";
+    cout<<mp.rbegin()->first<<" "<<mp.rbegin()->second<<"\n";
+
 
 
 }
@@ -24,8 +28,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int T;cin>>T;
-    while(T--)
     solve();
     return 0;
 }

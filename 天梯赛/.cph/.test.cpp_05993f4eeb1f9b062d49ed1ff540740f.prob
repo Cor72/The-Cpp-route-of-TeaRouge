@@ -1,1 +1,1 @@
-{"name":"Local: test","url":"d:\\VS code project\\天梯赛\\test.cpp","tests":[{"id":1773033629000,"input":"","output":"66,77\r\n8,9,10\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\VS code project\\天梯赛\\test.cpp","group":"local","local":true}
+{"name":"Local: test","url":"d:\\VS code project\\天梯赛\\test.cpp","tests":[{"id":1773033629000,"input":"10\n86 75 233 888 666 75 886 888 75 666","output":"75 3\n888 2"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\VS code project\\天梯赛\\test.cpp","group":"local","local":true}

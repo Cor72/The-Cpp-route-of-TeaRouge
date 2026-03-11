@@ -9,6 +9,8 @@ void solve()
     int n;char x;
     cin>>n>>x;
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
+    // string sa;
+    // getline(cin,sa);
     string s;
     getline(cin,s);
     cout<<s<<"\n";
