@@ -1,0 +1,19 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main(){
+	int fg = 0, n0, n1, n, mi = 100005, mi_i = 0; cin >> n0 >> n1 >> n;
+	for(int i = 1; i < n && i < n0 && (n-i) < n1; ++i){
+		if(n0 % i == 0 && n1 % (n-i) == 0){
+			fg = 1;
+			int mx = abs(n0/i - n1/(n-i));
+			if(mx < mi){
+				mi = mx;
+				mi_i = i;
+			}
+		}
+	}
+	if(fg) cout << mi_i << ' ' << n-mi_i;
+	else cout << "No Solution";
+	
+	return 0;
+}

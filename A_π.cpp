@@ -9,11 +9,9 @@ void solve()
 {
     int n;
     cin>>n;
-    vector<ll> a(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-    }
+    n*=n;
+    double ans=0.78539816340*n;
+    cout<<fixed<<setprecision(10)<<ans<<endl;
 
 
 
@@ -24,8 +22,6 @@ int main()
     ios::sync_with_stdio(false);
     cin.tie(0);
     cout.tie(0);
-    int T;cin>>T;
-    while(T--)
     solve();
     return 0;
 }
