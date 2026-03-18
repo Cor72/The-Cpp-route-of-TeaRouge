@@ -101,6 +101,26 @@ public:
     }
 };
 
+/*一、前缀和
+§1.1 基础
+左闭右开公式：子数组 [left,right) 的元素和为 sum[right]−sum[left]。把下标区间定义成左闭右开，就不需要加一减一了。*/
+
+class Solution {
+public:
+    int subarraySum(vector<int>& nums) {
+        int n=nums.size();
+        int ans=0;
+        vector<int> s(n+1);
+        for(int i=0;i<n;i++)
+        {
+            s[i+1]=s[i]+nums[i];
+            int start=max(0,i-nums[i]);
+            ans+=s[i+1]-s[start];
+        }
+        return ans;
+    }
+};
+
 
 
 
