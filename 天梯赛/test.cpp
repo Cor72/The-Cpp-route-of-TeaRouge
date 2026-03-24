@@ -7,79 +7,43 @@ const int N=4e5+1;const int MOD=998244353;
 
 void solve()
 {
-    int t;
-    cin>>t;
-    vector<int> t1(t);
-    vector<int> t2(t);
-    vector<bool> t3(t,false);
+    int n,m,t;
+    cin>>n>>m>>t;
+    // vector<ll> a(n);
+    ll cnt=m*n;
+    int x=0,y=0;
+    vector<bool> r(101010, false);
+    vector<bool> l(101010, false);
     for(int i=0;i<t;i++)
     {
-        cin>>t1[i]>>t2[i];
-    }
-    int n,maxn=0;
-    cin>>n;
-    vector<int> a(n);
-    vector<int> b(n);
-    vector<int> ans;
-    // for(int i=0;i<t;i++)
-    // {
-    //     if(t1[i]+1==t2[i])
-    //     {
-    //         b[i-1]++;
-    //     }
-    // }
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
-        for(int j=0;j<t;j++)
+        int a,b;
+        cin>>a>>b;
+        // cout<<x<<" "<<y<<endl;
+        if(a==0)
         {
-            if(a[i]==t2[j])
+            if(!r[b])
             {
-                t3[j]=false;
+            r[b] = true;
+            x++;
+            // cnt-=m;
+            // cnt+=y;
             }
-            if(t3[j])
+        }
+        else
+        {
+            if(!l[b])
             {
-                b[i]++;
-                maxn=max(maxn,b[i]);
-            }
-            if(a[i]==t1[j])
-            {
-                t3[j]=true;
+            l[b] = true;
+            y++;
+            // cnt-=n;
+            // cnt+=x;
             }
         }
     }
-    for(int i=0;i<n;i++)
-    {
-        for(int j=0;j<t;j++)
-        {
-            if(a[i]==t1[j]&&a[i+1]==t2[j])
-            {
-                if(i-1>=0)
-                {
-                    b[i-1]++;
-                    maxn=max(maxn,b[i-1]);
-                }
-                if(i+2<n)
-                {
-                    b[i+2]++;
-                    maxn=max(maxn,b[i+2]);
-                }
-            }
-        }
-    }
-    for(int i=0;i<n;i++)
-    {
-        if(b[i]==maxn)
-        {
-            ans.push_back(a[i]);
-        }
-    }
-    sort(ans.begin(),ans.end());
-    for(int i=0;i<ans.size();i++)
-    {
-        if(i>0) cout<<" ";
-        cout<<ans[i];
-    }
+    cnt=(ll)m*n-(ll)x*m-(ll)y*n+(ll)x*y;
+    cout<<cnt<<endl;
+    
+
 
 }
 

@@ -1,0 +1,231 @@
+        /* 全局样式重置，去除默认边距 */
+     /* 全局样式重置 */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+            background-color: #f0f2f5; /* 给页面一个浅灰背景，突出表单区域 */
+        }
+        #container{ 
+            width: 80%;
+            margin: auto;
+        }
+
+        /* 顶部导航栏样式 */
+        .navbar {
+            /* 3. 设置灰色背景色 */
+            background-color: #5d5d5d; 
+            /* 设置内边距，让内容不那么拥挤 */
+            padding: 15px 20px;
+            /* 2. 布局：使用 Flex 布局实现一行展示 */
+            display: flex;
+            /* 让子元素（标题和链接）垂直居中 */
+            align-items: center;
+            /* 让子元素两端对齐（标题在左，链接在右） */
+            justify-content: space-between;
+        }
+
+        /* 标题样式 */
+        .navbar h1 {
+            /* 1. 内容：醒目、加粗展示 */
+            font-size: 28px;
+            font-weight: bold;
+            color: #ffffff; /* 白色字体，在灰色背景上更清晰 */
+            margin: 0; /* 去除默认边距 */
+            /* 增加字间距，看起来更大气 */
+            letter-spacing: 1px;
+            
+            font-family: "Microsoft YaHei", Arial, sans-serif;
+        }
+
+        /* 退出登录链接样式 */
+        .navbar a {
+            text-decoration: none; /* 去除下划线 */
+            color: #ffffff; /* 白色字体 */
+            font-size: 16px;
+            padding: 8px 15px; /* 增加点击区域 */
+            border-radius: 4px; /* 圆角 */
+            transition: background-color 0.3s; /* 鼠标悬停动画 */
+        }
+
+        /* 鼠标悬停效果 */
+        .navbar a:hover {
+            background-color: #7a7a7a; /* 悬停时背景变浅，增加交互感 */
+        }
+
+        /* 搜索区域容器 */
+        .search-container {
+            background-color: #ffffff;
+            padding: 20px 25px;
+            margin: 20px auto; /* 上下间距20px，左右自动居中 */
+            width: 90%; /* 宽度占屏幕90% */
+            max-width: 1200px; /* 最大宽度限制，防止在大屏上太宽 */
+            border-radius: 8px; /* 圆角边框 */
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1); /* 轻微阴影，增加层次感 */
+            
+            /* 2. 布局：所有表单项及按钮水平排列 */
+            display: flex;
+            align-items: center; /* 垂直居中对齐 */
+            gap: 15px; /* 元素之间的间距，确保美观 */
+            flex-wrap: wrap; /* 如果屏幕太小，允许换行（响应式友好） */
+        }
+
+        /* 表单项通用样式 */
+        .form-item {
+            display: flex;
+            align-items: center;
+        }
+
+        /* 标签文字样式 */
+        .form-item label {
+            font-size: 14px;
+            color: #333;
+            margin-right: 8px;
+            font-weight: 500;
+        }
+
+        /* 输入框和下拉框通用样式 */
+        .form-control {
+            height: 36px;
+            padding: 0 12px;
+            border: 1px solid #dcdfe6;
+            border-radius: 4px;
+            font-size: 14px;
+            color: #606266;
+            outline: none;
+            transition: border-color 0.2s;
+            min-width: 120px; /* 设置最小宽度，保证美观 */
+        }
+
+        /* 输入框/下拉框 获取焦点时的效果 */
+        .form-control:focus {
+            border-color: #409eff; /* 聚焦时变蓝 */
+        }
+
+        /* 按钮通用样式 */
+        .btn {
+            height: 36px;
+            padding: 0 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: opacity 0.2s;
+            color: white;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            opacity: 0.8; /* 悬停时稍微变透明 */
+        }
+
+        /* 查询按钮特定样式 (蓝色) */
+        .btn-search {
+            background-color: #409eff;
+        }
+
+        /* 清空按钮特定样式 (灰色) */
+        .btn-reset {
+            background-color: #909399;
+        }
+        /* 表格容器 */
+        .table-container {
+            background-color: #ffffff;
+            margin: 0 auto 20px auto; /* 下边距20px */
+            padding: 20px;
+            width: 90%;
+            max-width: 1200px;
+            border-radius: 8px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* 表格基础样式 */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse; /* 合并边框 */
+            font-size: 14px;
+            color: #333;
+            text-align: center;
+        }
+
+        /* 表头样式 */
+        .data-table thead th {
+            background-color: #fafafa; /* 浅灰背景 */
+            color: #333;
+            font-weight: 600;
+            text-align: center;
+            padding: 12px 15px;
+            border-bottom: 2px solid #ebeef5;
+        }
+
+        /* 表格单元格样式 */
+        .data-table tbody td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #ebeef5;
+            vertical-align: middle; /* 垂直居中 */
+        }
+
+        /* 鼠标悬停行高亮 */
+        .data-table tbody tr:hover {
+            background-color: #f5f7fa;
+        }
+
+        /* 操作列按钮样式 */
+        .action-btn {
+            padding: 5px 10px;
+            font-size: 12px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            margin-right: 8px;
+            cursor: pointer;
+            border: none;
+            transition: opacity 0.2s;
+        }
+        .action-btn:hover { opacity: 0.8; }
+
+        .btn-edit { background-color: #e6a23c; } /* 橙色编辑 */
+        .btn-delete { background-color: #f56c6c; } /* 红色删除 */
+
+        /* 性别标签小样式 (可选优化) */
+        .gender-tag {
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 12px;
+        }
+        .gender-male { color: #409eff; background-color: #ecf5ff; }
+        .gender-female { color: #f56c6c; background-color: #fef0f0; }
+
+        /* --- 第四部分：页脚版权区域样式 --- */
+        .footer {
+            /* 2. 设计：灰色背景，白色字体 */
+            background-color: #5d5d5d;
+            color: #ffffff;
+            
+            /* 2. 设计：居中对齐 */
+            text-align: center;
+            
+            /* 内边距，让内容上下有呼吸感 */
+            padding: 20px 0;
+            
+            /* 字体大小和行高 */
+            font-size: 14px;
+            line-height: 1.8; /* 让两行文字间距适中 */
+            
+            /* 确保页脚在底部，清除可能的外边距 */
+            margin-top: 20px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        /* 移除段落默认边距，确保紧凑 */
+        .footer p {
+            margin: auto;
+            padding: 0;
+        }
+
+        /* 第二行版权信息稍微调小一点字号或降低透明度，体现层级 (可选优化) */
+        .footer .copyright-text {
+            font-size: 12px;
+            opacity: 0.8; 
+        }

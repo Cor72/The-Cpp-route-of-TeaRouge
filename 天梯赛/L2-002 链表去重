@@ -1,0 +1,80 @@
+#include<iostream>
+#include<string>
+#include<algorithm>
+#include<bits/stdc++.h>
+#include<stack>
+#include<set>
+#include<vector>
+#include<map>
+#include<queue>
+#include<deque>
+#include<cctype>
+#include<unordered_set> 
+#include<unordered_map> 
+#include<fstream>
+using namespace std;
+struct Node{
+	int address;
+	int data;
+	int next;
+};
+int main(){
+    int jian[10001];
+    memset(jian,0,sizeof(jian));
+    Node a[100000];
+    int first,n;
+    cin>>first>>n;
+    for(int i=0;i<n;i++){
+    	int address;
+    	int data;
+    	int next;
+    	cin>>address>>data>>next;
+		a[address].address=address;
+		a[address].data=data;
+		a[address].next=next; 
+	}
+	Node b[n],c[n];
+	int i=first;
+	int t1=0,t2=0;
+	while(a[i].next!=-1){
+		if(!jian[abs(a[i].data)]){
+			jian[abs(a[i].data)]=1;
+			b[t1].address=a[i].address;
+			b[t1].data=a[i].data;
+			b[t1++].next=a[i].next;
+		}
+		else{
+			c[t2].address=a[i].address;
+			c[t2].data=a[i].data;
+			c[t2++].next=a[i].next;
+		}
+		i=a[i].next;
+	}
+	if(!jian[abs(a[i].data)]){//继续的判断
+			jian[abs(a[i].data)]=1;
+			b[t1].address=a[i].address;
+			b[t1].data=a[i].data;
+			b[t1++].next=a[i].next;
+		}
+	else{
+		c[t2].address=a[i].address;
+		c[t2].data=a[i].data;
+		c[t2++].next=a[i].next;
+	}
+	printf("%05d %d",b[0].address,b[0].data);
+	for(int i=1;i<t1;i++){
+		printf(" %05d\n",b[i].address);
+		printf("%05d %d",b[i].address,b[i].data);
+	}
+	cout<<" -1"<<endl;
+	if(t2){
+		printf("%05d %d",c[0].address,c[0].data);
+		for(int i=1;i<t2;i++){
+		    printf(" %05d\n",c[i].address);
+		    printf("%05d %d",c[i].address,c[i].data);
+	    }
+	    cout<<" -1"<<endl;
+	} 
+	return 0;
+} 
+

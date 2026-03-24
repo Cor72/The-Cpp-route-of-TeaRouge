@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tlias智能学习辅助系统 - 导航栏</title>
+    <style></style>
+    <link rel="stylesheet" href="css/new.css"></link>
+</head>
+<body>
+    <div id="container">
+        
+    <!-- 顶部导航栏结构 -->
+    <div class="navbar">
+        <!-- 左侧标题 -->
+        <h1>Tlias智能学习辅助系统</h1>
+        
+        <!-- 右侧退出登录链接 -->
+        <a href="#">退出登录</a> 
+    </div>
+
+        <div class="search-container">
+        <!-- 1.1 表单项：姓名 -->
+        <div class="form-item">
+            <label for="name">姓名:</label>
+            <input type="text" id="name" class="form-control" placeholder="请输入姓名">
+        </div>
+
+        <!-- 1.1 表单项：性别 -->
+        <div class="form-item">
+            <label for="gender">性别:</label>
+            <select id="gender" class="form-control">
+                <option value="">请选择</option> <!-- 默认为空 -->
+                <option value="1">男</option>
+                <option value="2">女</option>
+            </select>
+        </div>
+
+        <!-- 1.1 表单项：职位 -->
+        <div class="form-item">
+            <label for="job">职位:</label>
+            <select id="job" class="form-control">
+                <option value="">请选择</option> <!-- 默认为空 -->
+                <option value="1">班主任</option>
+                <option value="2">讲师</option>
+                <option value="3">学工主管</option>
+                <option value="4">教研主管</option>
+                <option value="5">咨询师</option>
+            </select>
+        </div>
+
+        <!-- 1.2 操作按钮：查询 -->
+        <!-- type="button" 防止默认提交刷新，实际开发中通常配合JS或form action使用 -->
+        <button type="button" class="btn btn-search">查询</button>
+
+        <!-- 1.2 操作按钮：清空 -->
+        <!-- type="reset" 可以自动重置表单内的所有输入项 -->
+        <button type="reset" class="btn btn-reset">清空</button>
+    </div>
+
+    <div class="table-container">
+    <table class="data-table">
+        <thead>
+            <tr>
+                <th width="8%">姓名</th>
+                <th width="8%">性别</th>
+                <th width="12%">职位</th>
+                <th width="15%">入职日期</th>
+                <th width="15%">最后操作时间</th>
+                <th width="12%">操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- 测试数据 1: 温斯顿 (主角) -->
+            <tr>
+                <td>温斯顿·史密斯</td>
+                <td><span class="gender-tag gender-male">男</span></td>
+                <td>讲师</td>
+                <td>2023-05-12</td>
+                <td>2026-03-20 14:30:00</td>
+                <td>
+                    <button class="action-btn btn-edit">编辑</button>
+                    <button class="action-btn btn-delete">删除</button>
+                </td>
+            </tr>
+
+            <!-- 测试数据 2: 朱莉娅 (女主角) -->
+            <tr>
+                <td>朱莉娅</td>
+                <td><span class="gender-tag gender-female">女</span></td>
+                <td>咨询师</td>
+                <td>2024-02-18</td>
+                <td>2026-03-21 09:15:22</td>
+                <td>
+                    <button class="action-btn btn-edit">编辑</button>
+                    <button class="action-btn btn-delete">删除</button>
+                </td>
+            </tr>
+
+            <!-- 测试数据 3: 奥布莱恩 (反派/高层) -->
+            <tr>
+                <td>奥布莱恩</td>
+                <td><span class="gender-tag gender-male">男</span></td>
+                <td>教研主管</td>
+                <td>2022-11-05</td>
+                <td>2026-03-19 18:45:10</td>
+                <td>
+                    <button class="action-btn btn-edit">编辑</button>
+                    <button class="action-btn btn-delete">删除</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+    <!-- 第四部分：页脚版权区域 -->
+    <footer class="footer">
+    <!-- 第一行：公司全称 -->
+    <p>江苏传智播客教育科技股份有限公司</p>
+    <!-- 第二行：版权信息 -->
+    <p class="copyright-text">版权所有 Copyright 2006-2024 All Rights Reserved</p>
+    </footer>
+
+    </div>
+</body>
+</html>

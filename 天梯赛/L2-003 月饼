@@ -1,0 +1,44 @@
+#include <cstdio>
+#include <iostream>
+#include <algorithm>
+ 
+using namespace std;
+ 
+const int N = 1010;
+ 
+struct Goods
+{
+    double w,v;
+    bool operator< (const Goods& t) const
+    {
+        return v / w > t.v / t.w;
+    }
+}goods[N];
+ 
+int main()
+{
+    int n = 0,m = 0;
+    cin >> n >> m;
+    for(int i = 0;i < n;i++) cin >> goods[i].w;
+    for(int i = 0; i< n;i++) cin >> goods[i].v;
+    sort(goods,goods + n);
+    
+    double mon = 0;
+    for(int i = 0;i < n;i++)
+    {
+        if(goods[i].w <= m)
+        {
+            mon += goods[i].v;
+            m -= goods[i].w;
+        }
+        else
+        {
+            mon +=(double)goods[i].v * m /goods[i].w;
+            m = 0;
+            break;
+        }
+        
+    }
+    printf("%.2lf",mon);
+    return 0;
+}

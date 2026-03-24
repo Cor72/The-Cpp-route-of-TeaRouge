@@ -1,0 +1,27 @@
+span{
+    color: #0000004D;
+}
+a{
+    text-decoration: none;
+}
+p{
+    line-height: 2;
+    text-indent: 2em;
+}
+#container{ 
+    width: 60%;
+    margin: auto;
+    margin-top: 20px;
+    /* padding: 20px; */
+    background-color: #F8BBD0;
+    box-shadow: 10px 10px 5px grey;
+    border: 10px solid #66CCFF;
+    border-radius: 10px;
+    /* text-align: center; */
+}
+/*66CCFF 39C5BB E63926 F8BBD0*/
+#video{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}

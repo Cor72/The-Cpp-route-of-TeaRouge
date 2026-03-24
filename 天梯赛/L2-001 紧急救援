@@ -1,0 +1,81 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void solve() {
+    int n, m, s, d;
+    cin >> n >> m >> s >> d;
+    
+    // 每个城市的救援队数量
+    vector<int> w(n);
+    for (int i = 0; i < n; ++i)
+        cin >> w[i];
+    
+    // 图的邻接矩阵表示，初始化为无穷大
+    vector<vector<int>> g(n, vector<int>(n, 0x3f3f3f3f));
+    for (int i = 0; i < m; ++i) {
+        int a, b, c;
+        cin >> a >> b >> c;
+        g[a][b] = g[b][a] = c;  // 无向图
+    }
+    
+    // Dijkstra算法的初始化
+    vector<int> vis(n, 0);  // 标记是否访问过
+    vector<int> cnt(n, 0);  // 最短路径条数
+    vector<int> nums(n, 0); // 救援队数量
+    vector<int> dist(n, 0x3f3f3f3f);  // 最短距离
+    vector<int> pre(n, -1);  // 前驱节点
+    
+    dist[s] = 0;  // 起点到自己的距离为0
+    cnt[s] = 1;   // 起点到自己的最短路径条数为1
+    nums[s] = w[s];  // 起点到自己的救援队数量为w[s]
+    
+    // Dijkstra算法主循环
+    for (int i = 0; i < n; ++i) {
+        int x = -1;
+        // 找到当前未访问的节点中距离起点最近的节点
+        for (int j = 0; j < n; ++j) {
+            if (!vis[j] && (x == -1 || dist[x] > dist[j]))
+                x = j;
+        }
+        if (x == -1) break;  // 所有节点都已访问
+        vis[x] = 1;  // 标记为已访问
+        
+        // 更新邻居节点的距离
+        for (int j = 0; j < n; ++j) {
+            if (dist[j] > dist[x] + g[x][j]) {
+                dist[j] = dist[x] + g[x][j];
+                cnt[j] = cnt[x];  // 有更优的最短路径，直接更新最短路径条数
+                nums[j] = nums[x] + w[j];  // 有更优的最短路径，直接更新救援队数量
+                pre[j] = x;  // 更新前驱节点
+            } else if (dist[j] == dist[x] + g[x][j]) {
+                cnt[j] += cnt[x];  // 当前更新的距离和先前更新的最短路径距离一致，增加最短路径条数
+                if (nums[j] < nums[x] + w[j]) {
+                    nums[j] = nums[x] + w[j];  // 距离一致情况下，取最大救援队数量
+                    pre[j] = x;  // 取最大救援队数量路径，同时更新前驱节点
+                }
+            }
+        }
+    }
+    
+    // 输出最短路径数目以及救援队数目最大的结果
+    cout << cnt[d] << ' ' << nums[d] << '\n';
+    
+    // 输出路径
+    vector<int> path{d};
+    int idx = d;
+    while (idx != s) {
+        idx = pre[idx];
+        path.push_back(idx);
+    }
+    
+    // 逆序输出路径
+    for (int i = path.size() - 1; i >= 0; i--)
+        cout << path[i] << " \n"[i == 0];
+}
+
+int main() {
+    cin.tie(nullptr), cout.tie(nullptr);
+    ios::sync_with_stdio(false);
+    solve();
+    return 0;
+}

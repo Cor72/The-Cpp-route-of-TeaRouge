@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+#define endl '\n'
+const int N=80008;
+unordered_map<string,string> cpl;//cpl:情侣编号，swt:编号to下标
+unordered_map<string,int> swt;
+int n,m;
+vector<int> d(N,0),id(N);
+vector<string> num(N);
+bool ok(const int &i) {
+	return i>=0&&i<m&&id[i]==i;
+}
+struct node {
+	int a;//狗粮数
+	string b;//编号
+	bool operator<(const node &s)const {
+		if(a!=s.a)return a<s.a;
+		return b>s.b;
+	}
+};
+int main() {
+	ios::sync_with_stdio(0);
+	cin.tie(0);
+	cout.tie(0);
+	cin>>n;
+	string a,b;
+	for(int i=0; i<n; i++) {
+		cin>>a>>b;
+		cpl[a]=b;
+	}
+	cin>>m;
+	for(int i=0; i<m; i++) {
+		cin>>num[i];
+		id[i]=i;
+		swt[num[i]]=i;
+	}
+	for(int i=0; i<m; i++) {
+		if(cpl.find(num[i])!=cpl.end()&&swt.find(cpl[num[i]])!=swt.end()) {
+			id[i]=swt[cpl[num[i]]];
+			id[swt[cpl[num[i]]]]=i;
+		}
+	}
+	int w=0;
+	for(int i=0; i<m; i++) {
+		if(id[i]>i) {
+			if(id[i]==i+1) {
+				if(ok(i-1))d[i-1]++;
+				if(ok(id[i]+1))d[id[i]+1]++;
+			}
+			w++;
+		} else if(id[i]==i) {
+			d[i]+=w;
+		} else {
+			w--;
+		}
+	}
+	priority_queue<node> que;
+	for(int i=0; i<m; i++) {
+		//if(d[i]>0)不可以加此条件，因为有可能一对情侣都没有
+		que.push({d[i],num[i]});
+	}
+	node last=que.top();
+	que.pop();
+	cout<<last.b;
+	while(!que.empty()&&que.top().a==last.a) {
+		cout<<" "<<que.top().b;
+		que.pop();
+	}
+	cout<<endl;
+	return 0;
+}
+
