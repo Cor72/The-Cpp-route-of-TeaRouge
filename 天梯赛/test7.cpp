@@ -1,59 +1,47 @@
-#include <iostream>
+#include<bits/stdc++.h>
 using namespace std;
+using ll=long long;
+using pll=pair<ll,ll>;
+using vll=vector<vector<ll>>;
+const int MAX_N=4e5+1; const int MOD=998244353;
 
-class Entry {  //链接栈的结点
-public:
-  Entry* next;  // 指向下一个结点的指针
-  int data;     // 结点数据
-
-  //**********found**********
-  Entry(Entry* n, int d) : next(n), data(d) { }
-};
-
-class Stack {
-  Entry* top;
-public:
-  Stack() : top(0) { }
-  ~Stack()
-  {
-    while (top != 0) 
+void solve()
+{
+    int n, m; // 避免与全局常量 N 重名
+    cin >> n >> m;
+    map<vector<int>, int> mp;
+    for(int i=0; i<n; i++)
     {
-      Entry* tmp = top;
-      //**********found**********
-      top = top->next;  // 让top指向下一个结点
-      delete tmp;
+        vector<int> v(m);
+        for(int j=0; j<m; j++) cin >> v[j];
+        mp[v]++;
     }
-  }
-  void push(int data)  // 入栈
-//push函数是把入栈数据放入新结点中，并使之成为栈顶结点，原来的结点成为新结点的下一个结点
-  {
-    //**********found**********
-    top = new Entry(top, data);
-  }
-  int pop()
-  {
-    if (top == 0) return 0;
-    //**********found**********
-    int result = top->data;  // 保存栈顶结点中的数据
-    top = top->next;
-    return result;
-  }
-};
+    cout << mp.size() << "\n";
+    
+    // 修复：将 map 内容拷贝到 vector 中
+    vector<pair<const vector<int>, int>> vec(mp.begin(), mp.end());
+    
+    // 修复：对 vector 排序，lambda 参数使用 const auto& 引用 pair
+    sort(vec.begin(), vec.end(), [](const auto& a, const auto& b){
+        return a.second > b.second;
+    });
+
+    for(const auto& i : vec)
+    {
+        cout << i.second << " ";
+        for(auto j : i.first)
+        {
+            cout << j << " ";
+        }
+        cout << "\n";
+    }
+}
 
 int main()
 {
-  int a[] = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9 };
-  Stack s;
-
-  int i = 0;
-  for (i = 0; i < 10; i++) {
-    cout << a[i] << ' ';
-    s.push(a[i]);
-  }
-  cout << endl;
-  for (i = 0; i < 10; i++) {
-    cout << s.pop() << ' ';
-  }
-  cout << endl;
-  return 0;
+    ios::sync_with_stdio(false);
+    cin.tie(0);
+    cout.tie(0);
+    solve();
+    return 0;
 }

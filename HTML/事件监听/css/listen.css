@@ -14,6 +14,7 @@ html::before{
     z-index: -1;
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%)
     /* background: linear-gradient(120deg, #39c5bb, #ffccdd, #66ccff); */
+    /* background-color: #66ccff; */
 }
 
 ::selection{

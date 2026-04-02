@@ -15,8 +15,8 @@ html::before {
     position: fixed;
     z-index: -1;
     background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat;
+    /* background: #66ccff; */
 }
-
 ::selection {
     color: #fff;
     background-color: rgb(144,129,241);
@@ -92,7 +92,7 @@ html::before {
 .right .submit {
     width: 60%;
     height: 5rem;
-    color: #f6f6f6;
+    /* color: #f6f6f6; */
     background-image: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%);
     font-size: 1.4rem;
     border: none;
