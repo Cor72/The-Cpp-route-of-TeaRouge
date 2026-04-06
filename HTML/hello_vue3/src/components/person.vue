@@ -1,13 +1,8 @@
 <template>
     <div class="person">
-      <div class="button">
-      し：<input type="text" v-model="name">
-      なまえ：<input type="text" v-model="dename">
-      </div>
 
-      <br>
-      こんにちは、{{name}}{{dename}}さん
-      </br>
+      <div class="button">
+      </div>
     </div>
 </template> 
 
@@ -15,12 +10,12 @@
 export default {
   name: 'Person'
 }
-</script>
+</script> 
 
 <script setup>
-import {ref,reactive} from 'vue'
-let name = ref('')
-let dename = ref('')
+import {ref,reactive,watch} from 'vue'
+let person= ref({name:'こばやし',age:18,sex:'おとこ'})
+
 
 
 </script>
@@ -28,7 +23,7 @@ let dename = ref('')
 <style scoped>
 .person {
     width: 300px;
-    height: 300px;
+    height: 400px;
     margin: auto;
     padding: 20px;
     /* font-size: 20px; */
@@ -41,6 +36,10 @@ let dename = ref('')
   display: flex;
   flex-direction: column;
   align-items: center;
-
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  padding: 10px;
+  /* background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) */
 }
 </style>

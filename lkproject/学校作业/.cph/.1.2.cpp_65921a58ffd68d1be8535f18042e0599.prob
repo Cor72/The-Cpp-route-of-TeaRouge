@@ -1,0 +1,1 @@
+{"name":"Local: 1","url":"d:\\VS code project\\lkproject\\学校作业\\1.2.cpp","tests":[{"id":1775183519914,"input":"3\n5\n1","output":"3 is prime\r\n5 is prime\r\n"}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\VS code project\\lkproject\\学校作业\\1.2.cpp","group":"local","local":true}

@@ -79,3 +79,117 @@ function changeMaid() {
   maid.value={name:'トールです',age:21,sex:'おんな'}
 }
 </script>
+
+
+
+
+
+
+<template>
+    <div class="person">
+      <div class="button">
+      し：<input type="text" v-model="name">
+      なまえ：<input type="text" v-model="dename">
+      </div>
+
+      <br>
+      こんにちは、{{name}}{{dename}}さん
+      </br>
+    </div>
+</template> 
+
+<script>
+export default {
+  name: 'Person'
+}
+</script>
+
+<script setup>
+import {ref,reactive} from 'vue'
+let name = ref('')
+let dename = ref('')
+
+
+</script>
+
+
+
+
+
+<template>
+    <div class="person">
+      <h2>{{name}}</h2>
+      <h2>{{age}}</h2>
+      <h2>{{Dragon.name}}</h2>
+      <h2>{{Dragon.age}}</h2>
+      <div class="button">
+        <button @click="changeAge">こばやぃ</button>
+        <button @click="changeMaidAge">めいどのねんれい</button>
+        <button @click="changeName">こばやぃ</button>
+        <button @click="changeMaidName">めいどのしめい</button>
+      </div>
+    </div>
+</template> 
+
+<script>
+export default {
+  name: 'Person'
+}
+</script> 
+
+<script setup>
+import {ref,reactive, h, watch} from 'vue'
+let name = ref('小林')
+let age = ref(25)
+
+let Dragon = ref({
+  name: 'トール',
+  age: 16
+})
+let changeName = () => {
+  name.value += '~'
+}
+let changeAge = () => {
+  age.value += 1
+}
+let changeMaidName = () => {
+  Dragon.value.name += '~'
+}
+let changeMaidAge = () => {
+  Dragon.value.age += 1
+}
+// watch(() => age.value, (newValue, oldValue) => {
+//   console.log(`${oldValue}から${newValue}に変更されました`)
+// })
+const stopWatch = watch(age, (newValue, oldValue) => {
+  console.log(`${oldValue}から${newValue}に変更されました`)
+  if(newValue >= 30)
+  stopWatch()
+})
+
+
+</script>
+
+<style scoped>
+.person {
+    width: 300px;
+    height: 400px;
+    margin: auto;
+    padding: 20px;
+    /* font-size: 20px; */
+    background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) no-repeat;
+    /* background: linear-gradient(320deg, #0a1a40 0%, #3a7ecf 30%, #a0d8f0 60%, #ffffff 100%); */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  padding: 10px;
+  /* background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) */
+}
+</style>
