@@ -1,17 +1,14 @@
 <template>
     <div class="app">
-        <Person></Person>
-        <Person></Person>
-        <Person></Person>
+        <Person/>
     </div>
 </template>
 
-<script lang="ts">
+<script lang="ts" setup>
 import Person from './components/person.vue'
-export default {
-    name: 'App',
-    components: { Person },
-}
+import { reactive,ref} from 'vue';
+import { type PersonInter} from './types/index';
+
 </script>
 
 <style>

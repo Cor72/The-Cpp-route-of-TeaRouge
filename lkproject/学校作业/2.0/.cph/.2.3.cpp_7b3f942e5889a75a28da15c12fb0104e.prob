@@ -1,0 +1,1 @@
+{"name":"Local: 2","url":"d:\\VS code project\\lkproject\\学校作业\\2.0\\2.3.cpp","tests":[{"id":1775790599706,"input":"1 2 3 4 5 6 7 8 9 10","output":"10 9 8 7 6 5 4 3 2 1 "}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"d:\\VS code project\\lkproject\\学校作业\\2.0\\2.3.cpp","group":"local","local":true}

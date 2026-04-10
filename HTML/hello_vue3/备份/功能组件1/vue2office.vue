@@ -193,3 +193,66 @@ const stopWatch = watch(age, (newValue, oldValue) => {
   /* background: linear-gradient(120deg, #e0c3fc 0%, #8ec5fc 100%) */
 }
 </style>
+
+
+
+
+
+
+
+
+
+
+
+<template>
+    <div class="app">
+        <Person :list="personList" />
+    </div>
+</template>
+
+<script lang="ts" setup>
+import Person from './components/person.vue'
+import { reactive,ref} from 'vue';
+import { type PersonInter} from './types/index';
+let personList = ref<PersonInter[]>([
+  {name:'こばやし',age:25,sex:'おとこ'},
+  {name:'トール',age:16,sex:'おとこ'},
+  {name:'カンナカムイ',age:9,sex:'おとこ'},
+])
+
+</script>
+
+<template>
+    <div class="person">
+      <ul>
+        <!-- 修正1：key使用唯一属性 -->
+        <li v-for="p in list" :key="p.name">
+          {{p.name}} - {{p.age}}歳 - {{p.sex}}
+        </li>
+      </ul>
+      <div class="button">
+      </div>
+    </div>
+</template>
+
+<script setup lang="ts">
+import { type PersonInter } from '../types/index'
+
+// 修正2：使用defineOptions设置组件名（Vue 3.3+）
+defineOptions({
+  name: 'Person'
+})
+
+// 修正3：props类型改为数组
+defineProps<{
+  list?:PersonInter[]  // 注意这里是数组类型
+}>()
+</script>
+
+export interface PersonInter {
+    name: string;
+    age: number;
+    sex: string;
+}
+
+export const a=9;
