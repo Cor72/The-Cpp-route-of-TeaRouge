@@ -7,49 +7,13 @@ const int N=4e5+1;const int MOD=998244353;
 
 void solve()
 {
-    int N,M,K;
-    cin>>N>>M>>K;
-    deque<int> a;
-    stack<int> b;
-    vector<int> c;
-    for(int i=0;i<N;i++)
+    int n;
+    cin>>n;
+    vector<ll> a(n);
+    for(int i=0;i<n;i++)
     {
-        int xc;
-        cin>>xc;
-        a.push_back(xc);
+        cin>>a[i];
     }
-    int x;
-    if(!b.empty())
-    {
-        x=b.top();
-        b.pop();
-    }
-    else
-    {
-        x=a.front();
-        a.pop_front();
-    }
-    if(x>c.back())
-    {
-        a.push_front(x);
-        x=a.front();
-        a.pop_front();
-        while(x<=c.back())
-        {
-            b.push(x);
-            x=a.front();
-            a.pop_front();
-        }
-        if(x>c.back())
-        {
-            c.push_back(x);
-        }
-    }
-    else
-    {
-        c.push_back(x);
-    }
-
     
 
 
