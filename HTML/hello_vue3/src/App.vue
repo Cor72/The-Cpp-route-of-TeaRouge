@@ -2,20 +2,19 @@
     <div class="app">
         <h2>Vue路由测试</h2>
         <div class="navigate">
-            <a href="#">あい</a>
-            <a href="#">いえ</a>
-            <a href="#">せつな</a>
+            <RouterLink to="/home">あい</RouterLink>
+            <RouterLink :to="{name:'xinwen'}">いえ</RouterLink>
+            <RouterLink :to="{path:'/about'}">せつな</RouterLink>
         </div>
         <div class="content">
-            こばやし
+            <RouterView></RouterView>
         </div>
     </div>
 </template>
 
 <script lang="ts" setup>
-import Person from './components/person.vue'
 import { reactive,ref} from 'vue';
-import { type PersonInter} from './types/index';
+import { RouterView,RouterLink} from 'vue-router';
 </script>
 
 <style>
@@ -32,8 +31,8 @@ body {
 
 /* 组件样式 */
 .app {
-    padding: 20px;
-    max-width: 800px;
+    /* padding: 20px;
+    max-width: 800px; */
     margin: 0 auto;
 }
 
@@ -69,7 +68,7 @@ h2 {
 }
 
 .content {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.25);
     padding: 25px;
     border-radius: 8px;
     text-align: center;

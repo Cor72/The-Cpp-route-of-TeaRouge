@@ -7,37 +7,47 @@ const int N=4e5+1;const int MOD=998244353;
 
 void solve()
 {
-    int n;cin>>n;
-    if (n < 0 || n > 100) {
-        cout << "输入的字母错误" << endl;
-    } else {
-        int grade = n / 10;
-        switch (grade) {
-            case 10:
-            case 9:
-            case 8:
-                cout << "A" << endl;
-                break;
-            case 7:
-                cout << "B" << endl;
-                break;
-            case 6:
-                cout << "C" << endl;
-                break;
-            case 5:
-            case 4:
-            case 3:
-            case 2:
-            case 1:
-            case 0:
-                cout << "D" << endl;
-                break;
-            default:
-                cout << "输入的字母错误" << endl;
-                break;
+    int n;
+    cin>>n;
+    vector<string> a(n);
+    for(int i=0;i<n;i++)
+    {
+        cin>>a[i];
+    }
+    int k=0;cin>>k;
+    // cout<<k<<"\n";
+    int cnt=0;
+    cin.ignore(numeric_limits<streamsize>::max(),'\n');
+    string s;
+    getline(cin,s);
+    for(int i=0;i<n;i++)
+    {
+        size_t pos=0;
+        while((pos=s.find(a[i],pos))!=string::npos)
+        {
+            s.replace(pos,a[i].length(),"^_^");
+            pos+=3;
+            cnt++;
         }
     }
-
+    // cout<<cnt<<"\n"<<s<<"\n";
+    if(cnt>=k)
+    {
+        cout<<cnt<<"\n";
+        cout<<"He Xie Ni Quan Jia!";
+    }
+    else
+    {
+        size_t pos=0;
+        while((pos=s.find("^_^",pos))!=string::npos)
+        {
+            s.replace(pos,3,"<censored>");
+            pos+=10;
+            cnt++;
+        }
+        // cout<<cnt<<"\n";
+        cout<<s;
+    }
 
 }
 

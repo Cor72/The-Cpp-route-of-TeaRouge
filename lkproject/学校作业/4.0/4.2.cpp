@@ -4,19 +4,23 @@ using ll=long long;
 using pll=pair<ll,ll>;
 using vll=vector<vector<ll>>;
 const int N=4e5+1;const int MOD=998244353;
-vector<int> a;
-void threee(int o,int p)
-{
-    reverse(a.begin()+o,a.begin()+p);
-}
+
 void solve()
 {
-    int n;cin>>n;a.resize(n);
-    for(int i=0;i<N;i++) cin>>a[i];
-    int o,p;
-    cin>>o>>p;
-    threee(o,p);
-
+    string s;cin>>s;
+    string t;cin>>t;
+    auto f=[&](string s,string t)
+    {
+        return s+t;
+    };
+    auto g=[&](string s,string t)
+    {
+        return t==s;
+    };
+    auto h=[&](string s)
+    {
+        return s.size();
+    };
 
 }
 
