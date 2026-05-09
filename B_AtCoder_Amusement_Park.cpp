@@ -7,13 +7,27 @@ const int N=1e9+7;const int MOD=998244353;
 
 void solve()
 {
-    int n;
-    cin>>n;
-    vector<int> a(n);
+    int n,m;
+    cin>>n>>m;
+    int ans=0;
+    deque<int> a;
     for(int i=0;i<n;i++)
     {
-        cin>>a[i];
+        int x;cin>>x;
+        a.push_back(x);
     }
+    while(!a.empty())
+    {
+        int cnt=m;
+        while(!a.empty()&&cnt>=a.front())
+        {
+            cnt-=a.front();
+            a.pop_front();
+        }
+        ans++;
+    }
+    cout<<ans;
+
 
 
 

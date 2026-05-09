@@ -1,9 +1,9 @@
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
-using pii=pair<int,int>;
-using vii=vector<int>;
-const int N=1e9+7;const int MOD=998244353;
+using pll=pair<ll,ll>;
+using vll=vector<vector<ll>>;
+const int N=4e5+1;const int MOD=998244353;
 
 void solve()
 {
@@ -13,7 +13,15 @@ void solve()
     for(int i=0;i<n;i++)
     {
         cin>>a[i];
+        if(a[i]>a[0])
+        {
+            cout<<i+1;
+            return;
+        }
+        
     }
+    cout<<-1;
+
 
 
 
