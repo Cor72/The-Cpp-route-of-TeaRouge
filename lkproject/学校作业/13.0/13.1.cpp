@@ -33,7 +33,7 @@ class D: public A, public B
 private: int d;
 public:
     D(){d=0;}
-    D(int xx, int aa, int bb, int dd): N(xx), A(xx, aa), B(xx, bb) //最派生类直接构造虚基类
+    D(int xx, int aa, int bb, int dd): N(xx), A(xx, aa), B(xx, bb) 
     {d=dd;}
 };
 
