@@ -1,35 +1,44 @@
-#include<bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
-using ll=long long;
-using pll=pair<ll,ll>;
-using vll=vector<vector<ll>>;
-const int N=4e5+1;const int MOD=998244353;
+using ll = long long;
+using ld = long double;
+vector<string>st;
 
-void solve()
-{
-    string s;
-    cin>>s;
-    if(s.size()%5==0)
-    {
-        cout<<"Yes\n";
-        return;
+void solve() {
+    int w,l;cin>>w>>l;
+    string s;cin>>s;
+
+    while(w--){
+        string t;cin>>t;
+        st.push_back(t);
     }
-    else
+    vector<int>dp(l+2);
+    dp[l]=0;
+    for(int i=l-1;i>=0;i--)
     {
-        cout<<"No\n";
-        return;
+        dp[i]=dp[i+1]+1;
+        int Min=1e9;
+        for(string&u:st)
+        {
+            if(u[0]!=s[i])continue;
+            int pos=0,p=-1;
+            for(int j=i;j<l;j++)
+            {
+                if(s[j]==u[pos])pos++;
+                if(pos==u.size())
+                {
+                    p=j+1;
+                    break;
+                }
+            }
+            if(p!=-1)Min=min(Min,dp[p]+p-i-(int)u.size());
+        }
+        dp[i]=min(dp[i],Min);
     }
-
-
-
-
+    cout << dp[0];
 }
-
-int main()
-{
-    ios::sync_with_stdio(false);
-    cin.tie(0);
-    cout.tie(0);
-    solve();
-    return 0;
+int main() {
+    int t=1;
+    //cin>>t;
+    while(t--)solve();
 }
