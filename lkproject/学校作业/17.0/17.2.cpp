@@ -1,21 +1,61 @@
-// 4. 使用迭代器（explicit iterator）
-cout << "遍历4 - 迭代器: ";
-for (auto it = arr.begin(); it != arr.end(); ++it)
+#include<iostream>
+using namespace std;
+
+class Shape
 {
-    cout << *it << " ";
-}
+public:
+	virtual void printArea() = 0; 
+};
 
-// 5. 反向迭代器
-cout << "遍历5 - 反向迭代: ";
-for (auto rit = arr.rbegin(); rit != arr.rend(); ++rit)
+class Circle :public Shape 
 {
-    cout << *rit << " ";
+public:
+	Circle(float r) :radius(r) {};
+	virtual void printArea() 
+	{
+		cout << "Area of Circle：" << endl << 3.14159 * radius * radius << endl;
+	}
+
+private:
+	float radius;
+};
+
+class Rectangle :public Shape
+{
+public:
+	Rectangle(float w, float h) :width(w), height(h) {};
+	virtual void printArea()
+	{
+		cout << "Area of Rectangle：" << endl << width * height << endl;
+	}
+
+private:
+	float width;
+	float height;
+};
+
+class Triangle :public Shape 
+{
+public:
+	Triangle(float w, float h) :width(w), height(h) {}; 
+	virtual void printArea()
+	{
+		cout << "Area of Triangle：" << endl << 0.5 * width * height << endl;
+	}
+
+private:
+	float width;
+	float height;
+};
+
+void main()
+{
+	Circle circle(5);        // 建立 Circle 类对象 circle
+	circle.printArea();        // 输出 circle的面积
+
+	Rectangle rectangle(3, 5); // 建立 Rectangle 类对象 rectangle
+	rectangle.printArea();     // 输出 rectangle 的面积
+
+	Triangle triangle(4, 6);   // 建立 Triangle 类对象 
+	triangle.printArea();      // 输出 triangle 的面积
 }
-
-// 6. std::for_each + lambda
-cout << "遍历6 - std::for_each + lambda: ";
-std::for_each(arr.begin(), arr.end(), [](int x) { std::cout << x << " "; });
-
-// 7. std::copy + ostream_iterator（快速输出序列）
-cout << "遍历7 - std::copy + ostream_iterator: ";
-std::copy(arr.begin(), arr.end(), std::ostream_iterator<int>(cout, " "));
