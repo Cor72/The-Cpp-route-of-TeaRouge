@@ -13,7 +13,7 @@ public:
 	Circle(float r) :radius(r) {};
 	virtual void printArea() 
 	{
-		cout << "Area of Circle：" << endl << 3.14159 * radius * radius << endl;
+		cout << "Area of Circle：" << endl << 3.14159 * radius * radius;
 	}
 
 private:
