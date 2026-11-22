@@ -58,22 +58,40 @@ struct SCC {
                 }
             }
         }
-        return make_tuple{cnt, adj, col, siz};
+        return make_tuple(cnt, adj, col, siz);
     }
 };
 
 void solve()
 {
-    int n;
-    cin>>n;
+    int n,m,s;
+    cin>>n>>m>>s;
     vector<int> a(n);
-    for(int i=0;i<n;i++)
-    {
-        cin>>a[i];
+    SCC scc(n);
+    for(int i=0;i<m;i++){
+        int x,y;
+        cin>>x>>y;
+        scc.add(x,y);
     }
-
-
-
+    auto [cnt,adj,col,siz]=scc.work();
+    int start=col[s];
+    queue<int> q;
+    q.push(start);
+    vector<int> dis(cnt+1,0);
+    dis[start]=0;
+    ll ans=0;
+    while(!q.empty()){
+        int x=q.front();
+        q.pop();
+        ans+=siz[x];
+        for(auto y:adj[x]){
+            if(!dis[y]){
+                dis[y]=1;
+                q.push(y);
+            }
+        }
+    }
+    cout<<ans<<endl;
 }
 
 int main()
